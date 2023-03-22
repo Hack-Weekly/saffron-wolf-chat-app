@@ -18,7 +18,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "react/prop-types": "off" // TODO: Remove this line when you add prop types
     },
     "settings": {
         "react": {

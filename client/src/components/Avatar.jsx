@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Avatar({ name }) {
   const [color, setColor] = React.useState('bg-gray-800');
@@ -23,3 +24,7 @@ export default function Avatar({ name }) {
     </div>
   );
 }
+
+Avatar.propTypes = {
+  name: PropTypes.string.isRequired,
+};

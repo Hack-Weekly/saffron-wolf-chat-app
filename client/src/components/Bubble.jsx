@@ -1,7 +1,8 @@
 import Avatar from './Avatar.jsx';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Bubble({ message, isSelf }) {
+export default function Bubble({ message, isSelf = false }) {
   return (
     <div className={`flex space-x-4 ${isSelf && 'justify-end'}`}>
       {!isSelf && (
@@ -22,3 +23,12 @@ export default function Bubble({ message, isSelf }) {
     </div>
   );
 }
+
+Bubble.propTypes = {
+  message: PropTypes.shape({
+    from: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    created_on: PropTypes.number.isRequired,
+  }).isRequired,
+  isSelf: PropTypes.bool,
+};

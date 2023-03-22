@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from './Avatar.jsx';
 import { IconDots } from '@tabler/icons-react';
+import PropTypes from 'prop-types';
 
 export default function Header() {
   // TODO: Get last seen and users from the server
@@ -34,3 +35,8 @@ export default function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.string),
+  lastSeen: PropTypes.number,
+};

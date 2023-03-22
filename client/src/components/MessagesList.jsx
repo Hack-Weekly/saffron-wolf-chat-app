@@ -1,5 +1,6 @@
 import Bubble from './Bubble.jsx';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function MessageList({ messages }) {
   return (
@@ -13,3 +14,14 @@ export default function MessageList({ messages }) {
     </div>
   );
 }
+
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      from: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      created_on: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};
