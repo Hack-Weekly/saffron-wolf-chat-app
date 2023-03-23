@@ -18,6 +18,7 @@ export default function Bubble({ message, isSelf = false }) {
         <div className='z-10'>
           <div className='mb-1 font-bold'>{message.from}</div>
           <p className='text-lg'>{message.text}</p>
+          <div className='text-right text-xs'>{new Date(message.created_on).toLocaleString()}</div>
         </div>
       </div>
     </div>

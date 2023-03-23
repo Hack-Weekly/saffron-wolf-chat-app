@@ -25,7 +25,7 @@ export default function Header() {
           </div>
           <div className='flex flex-col items-center'>
             <h1 className='text-xl font-bold'>Chat App</h1>
-            <h2 className='text-sm text-gray-500'>Last seen {lastSeen} ago</h2>
+            <h2 className='text-sm text-gray-500'>Last seen {new Date().toLocaleString()}</h2>
           </div>
           <button className='flex items-center justify-center rounded-full p-2 hover:bg-gray-100 focus:bg-gray-100'>
             <IconDots />
