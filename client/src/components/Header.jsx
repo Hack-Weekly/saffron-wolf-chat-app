@@ -9,9 +9,9 @@ export default function Header() {
   const users = ['Alice', 'Bob', 'Charlie', 'Diana'];
 
   return (
-    <header className='border-b px-4 py-2'>
-      <div className='container mx-auto'>
-        <div className='flex items-center justify-between'>
+    <div className='fixed inset-x-0 top-0 z-50 h-20 border-b bg-white'>
+      <header className='container mx-auto h-full h-full px-4 py-2'>
+        <div className='flex h-full items-center justify-between space-x-4'>
           <div
             className={
               'flex [&>*:first-child]:ml-0 [&>*]:-ml-2 [&>*]:border-l-4 [&>*]:border-white [&>:first-child]:border-l-0'
@@ -31,8 +31,8 @@ export default function Header() {
             <IconDots />
           </button>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 }
 
