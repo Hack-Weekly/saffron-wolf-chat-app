@@ -19,7 +19,9 @@ export default function Avatar({ name }) {
   }, [name]);
 
   return (
-    <div className={`flex h-8 w-8 items-center justify-center rounded-full text-white ${color}`}>
+    <div
+      className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-sm leading-none text-white ${color}`}
+    >
       {name[0].toUpperCase()}
     </div>
   );
