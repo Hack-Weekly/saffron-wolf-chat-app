@@ -18,9 +18,7 @@ export default function Header() {
             }
           >
             {users.map((user) => (
-              <div className='rounded-full' key={user}>
-                <Avatar name={user} />
-              </div>
+              <Avatar name={user} key={user} />
             ))}
           </div>
           <div className='flex flex-col items-center'>
