@@ -60,14 +60,18 @@ io.on('connect', (socket) => {
     console.log('User joined');
     io.emit(user, ' has joined the chat');
   });
-  socket.on("message", async (message, user) => {
-    socket.broadcast.emit(message);
+  socket.on('message', async (message) => {
+    console.log(`Message received: ${message} from ${socket.id}`);
     try {
-      let result = await collection.insertOne({
-        from: user,
+      const newMsg = await collection.insertOne({
+        from: socket.id,
         text: message,
         created_on: Date.now(),
       });
+      const result = await collection.findOne({
+        _id: newMsg.insertedId,
+      });
+      io.emit('message', result);
     } catch (e) {
       console.log(e.message);
     }
