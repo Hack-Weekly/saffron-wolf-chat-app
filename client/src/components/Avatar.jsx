@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Avatar({ name }) {
+export default function Avatar({ name, initial = true }) {
   const [color, setColor] = React.useState('bg-gray-800');
 
   useEffect(() => {
@@ -20,13 +20,14 @@ export default function Avatar({ name }) {
 
   return (
     <div
-      className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-sm leading-none text-white ${color}`}
+      className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-sm font-semibold leading-none text-white ${color}`}
     >
-      {name[0].toUpperCase()}
+      {initial ? name[0].toUpperCase() : name}
     </div>
   );
 }
 
 Avatar.propTypes = {
   name: PropTypes.string.isRequired,
+  initial: PropTypes.bool,
 };
