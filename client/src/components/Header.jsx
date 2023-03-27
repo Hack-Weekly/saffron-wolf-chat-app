@@ -1,26 +1,24 @@
 import React from 'react';
-import Avatar from './Avatar.jsx';
 import { IconDots } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
+import AvatarGroup from './AvatarGroup.jsx';
 
 export default function Header() {
-  // TODO: Get last seen and users from the server
-  const lastSeen = 5;
-  const users = ['Alice', 'Bob', 'Charlie', 'Diana'];
+  // TODO: Get users from the server
+  const users = [
+    { id: 1, name: 'Rand' },
+    { id: 2, name: 'Donnell' },
+    { id: 3, name: 'Jacklin' },
+    { id: 4, name: 'Lynnea' },
+    { id: 5, name: 'Jobina' },
+    { id: 6, name: 'Kissie' },
+  ];
 
   return (
     <div className='fixed inset-x-0 top-0 z-50 h-20 border-b bg-white'>
       <header className='container mx-auto h-full h-full px-4 py-2'>
         <div className='flex h-full items-center justify-between space-x-4'>
-          <div
-            className={
-              'flex [&>*:first-child]:ml-0 [&>*]:-ml-2 [&>*]:border-l-4 [&>*]:border-white [&>:first-child]:border-l-0'
-            }
-          >
-            {users.map((user) => (
-              <Avatar name={user} key={user} />
-            ))}
-          </div>
+          <div>{users && <AvatarGroup users={users} maxCount={3} />}</div>
           <div className='flex flex-col items-center'>
             <h1 className='text-xl font-bold'>Chat App</h1>
             <h2 className='text-sm text-gray-500'>Last seen {new Date().toLocaleString()}</h2>
