@@ -1,27 +1,17 @@
 import Bubble from './Bubble.jsx';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSocket } from '../context/SocketContext.jsx';
 
-export default function MessageList({ messages }) {
+export default function MessageList() {
+  const { socket, messages } = useSocket();
+
   return (
     <div className={'mt-20 mb-16 h-full'}>
       <div className='container mx-auto flex flex-col space-y-4 p-4'>
         {messages.map((message) => (
-          // TODO: Proper check if the message is from the current user
-          <Bubble key={message.id} message={message} isSelf={message.from.length === 4} />
+          <Bubble key={message._id} message={message} isSelf={socket && socket.id === message.from} />
         ))}
       </div>
     </div>
   );
 }
-
-MessageList.propTypes = {
-  messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      from: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      created_on: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
